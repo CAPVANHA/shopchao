@@ -117,7 +117,7 @@
                             <div class="product__item sale">
                                 <div class="product__item__pic set-bg" data-setbg="upload/<?=$image?>">
                                     <!-- <div class="label sale">New</div> -->
-                                    <div class="label_right sale">-<?=$discount_percentage?></div>
+                                    <!-- <div class="label_right sale">-<?=$discount_percentage?></div> -->
                                     <ul class="product__hover">
                                         <li><a href="upload/<?=$image?>" class="image-popup"><span class="arrow_expand"></span></a></li>
                                         <li>
@@ -132,7 +132,7 @@
                                                 <input value="<?=$_SESSION['user']['id']?>" type="hidden" name="user_id">
                                                 <input value="<?=$name?>" type="hidden" name="name">
                                                 <input value="<?=$image?>"type="hidden" name="image">
-                                                <input value="<?=$sale_price?>" type="hidden" name="price">
+                                                <input value="<?=$price?>" type="hidden" name="price">
                                                 <input value="1" type="hidden" name="product_quantity">
                                                 <input value="<?=$image?>" type="hidden" name="image">
 
@@ -159,7 +159,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="product__price"><?=number_format($sale_price)."₫"?> <span><?=number_format($price)."đ"?> </span></div>
+                                    <div class="product__price"><?=number_format($price)."₫"?> </div>
                                 </div>
                             </div>
                         </div>

@@ -55,32 +55,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sidebar__filter">
-                            <div class="section-title">
-                                <h4>TÌM THEO GIÁ</h4>
-                            </div>
-                            <div class="filter-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="100000" data-max="5000000"></div>
-                                <div class="range-slider">
-                                    <form action="index.html" method="post">
-                                        
-                                        <div class="price-input">
-                                            <p>Giá từ:</p> <br>
-                                            <input type="text" id="minamount" > <p>đến</p>
-                                            <input type="text" id="maxamount" > <br>
-
-                                            <!-- Sử Dụng Thẻ a hoặc input de loc gia -->
-                                            <input type="submit" class="filter-price" name="" value="LỌC GIÁ">
-                                        </div>
-                                    </form>
-        
-                                </div>
-                            </div>
-                            <!-- <a href="#">LỌC GIÁ</a> -->
-                        </div>
-                        
-                        
+                           
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-9">
@@ -93,7 +68,7 @@
                             <div class="product__item sale">
                                 <div class="product__item__pic set-bg" data-setbg="upload/<?=$image?>">
                                     <!-- <div class="label sale">New</div> -->
-                                    <div class="label_right sale">-<?=$discount_percentage?></div>
+                                    <!-- <div class="label_right sale">-<?=$discount_percentage?></div> -->
                                     <ul class="product__hover">
                                         <li><a href="upload/<?=$image?>" class="image-popup"><span class="arrow_expand"></span></a></li>
                                         <li>
@@ -108,7 +83,7 @@
                                                 <input value="<?=$_SESSION['user']['id']?>" type="hidden" name="user_id">
                                                 <input value="<?=$name?>" type="hidden" name="name">
                                                 <input value="<?=$image?>"type="hidden" name="image">
-                                                <input value="<?=$sale_price?>" type="hidden" name="price">
+                                                <input value="<?=$price?>" type="hidden" name="price">
                                                 <input value="1" type="hidden" name="product_quantity">
                                                 <input value="<?=$image?>" type="hidden" name="image">
 
@@ -127,7 +102,7 @@
                                     
                                 </div>
                                 <div class="product__item__text">
-                                    <h6 class="text-truncate-1"><a href="product-details.html"><?=$name?></a></h6>
+                                    <h6 class="text-truncate-1"><a href="index.php?url=chitietsanpham&id_sp=<?=$product_id?>&id_dm=<?=$category_id?>"><?=$name?></a></h6>
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -135,7 +110,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="product__price"><?=number_format($sale_price)."₫"?> <span><?=number_format($price)."đ"?> </span></div>
+                                    <div class="product__price"><?=number_format($price)."₫"?> </div>
                                 </div>
                             </div>
                         </div>

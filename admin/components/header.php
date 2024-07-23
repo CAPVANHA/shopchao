@@ -149,7 +149,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="public_admin/img/user-default.png" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Khoa Nguyen</span>
+                            <span class="d-none d-lg-inline-flex"><?=$_SESSION['user_admin']['full_name']?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-white border-1 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">Hồ sơ</a>

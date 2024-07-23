@@ -1,7 +1,30 @@
 <?php
     $list_users = $CustomerModel->select_all_users();
 
+    if(isset($_GET['xoa'])) {
+        $user_id = $_GET['xoa'];
+
+        $check_comment = $CommentModel->check_remove_user($user_id);
+        $check_order = $OrderModel->check_remove_user($user_id);
+
+        // Xóa giỏ hàng trước khi xóa user
+        $CustomerModel->delete_cart($user_id);
+        
+
+        if($check_order > 0 || $check_comment > 0) {
+            echo "<script>alert('Tài khoản đang có đơn hàng và bình luận không thể xóa')</script>";
+        }
+        else {
+            $CustomerModel->delete_user($user_id);
+
+            header("Location: index.php?quanli=danh-sach-khach-hang");
+        }
+
+    }
+
 ?>
+
+
 
 <!-- LIST PRODUCTS -->
 <div class="container-fluid pt-4 px-4">
@@ -23,7 +46,7 @@
                         <th scope="col">Email</th> 
                         <th scope="col">Số điện thoại</th>   
                         <th scope="col">Vai trò</th>      
-                        <!-- <th scope="col">Chỉnh sửa</th> -->
+                        <th scope="col">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,9 +75,13 @@
                             }
                             ?> 
                         </td>
-                        <!-- <td>
-                            <a href="" class="btn-sm btn-secondary">Cập nhật</a>
-                        </td> -->
+                        <td>
+                            <a 
+                            href="capnhat-tai-khoan&id=<?=$user_id ?>" class="btn-sm btn-warning">Sửa</a>
+
+                            <a onclick="return confirm('Bạn có chắc chắn muốn xóa')"  
+                            href="danh-sach-khach-hang&xoa=<?=$user_id ?>" class="btn-sm btn-danger">Xóa</a>
+                        </td>
                     </tr>
                     <?php
                     }

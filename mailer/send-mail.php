@@ -18,11 +18,11 @@
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 465;
         $mail->IsHTML(true);
-        $mail->Username = 'nguyenleanhkhoa25866@gmail.com';
-        $mail->Password = 'cprzeejxblkesolz';
+        $mail->Username = 'phamdung101103@gmail.com';
+        $mail->Password = 'lhxaxjudokikkwlt';
         // $mail->SetFrom('Admin');
         // Thay đổi tên người gửi và địa chỉ email người gửi
-        $mail->SetFrom('nguyenleanhkhoa25866@gmail.com', 'FAHASA shop');
+        $mail->SetFrom('phamdung101103@gmail.com', 'Shop cháo ngon');
         $mail->Subject = $title;
         $mail->Body = $content;
         $mail->AddAddress($recipientEmail);

@@ -95,11 +95,7 @@
                             <span>( <?=count($list_comments)?> bình luận )</span>
                         </div>
                         <div class="product__details__price">
-                            <?=$ProductModel->formatted_price($sale_price); ?> 
-                            <span class="ml-2">
-                                <?=$ProductModel->formatted_price($price); ?>
-                            </span>
-                            <div class="label_right ml-2"><?=$discount_percentage?></div>
+                            <?=$ProductModel->formatted_price($price); ?> 
                         </div>
                         
                         <div class="short__description">
@@ -125,7 +121,7 @@
                                     <input value="<?=$_SESSION['user']['id']?>" type="hidden" name="user_id">
                                     <input value="<?=$name?>" type="hidden" name="name">
                                     <input value="<?=$image?>"type="hidden" name="image">
-                                    <input value="<?=$sale_price?>" type="hidden" name="price">
+                                    <input value="<?=$price?>" type="hidden" name="price">
                                     <!-- <input value="1" type="hidden" name="product_quantity"> -->
                                     <input value="<?=$image?>" type="hidden" name="image">
 
@@ -204,8 +200,6 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="product__item sale">
                         <div class="product__item__pic set-bg" data-setbg="upload/<?=$image?>">
-                            
-                            <div class="label_right sale">-<?=$discount_percentage?></div>
                             <ul class="product__hover">
                                 <li><a href="upload/<?=$image?> " class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <li>
@@ -242,7 +236,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <div class="product__price"><?=$ProductModel->formatted_price($sale_price); ?>  <span><?=$ProductModel->formatted_price($price); ?> </span></div>
+                            <div class="product__price"><?=$ProductModel->formatted_price($price); ?>  </div>
                         </div>
                     </div>
                 </div>

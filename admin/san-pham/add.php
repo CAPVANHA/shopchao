@@ -29,7 +29,7 @@
 
         $quantity = $_POST["quantity"];
         $price = $_POST["price"];
-        $sale_price = $_POST["sale_price"];
+        // $sale_price = $_POST["sale_price"];
         $details = isset($_POST["details"]) ? $_POST["details"] : '';
         $short_description = isset($_POST["short_description"]) ? $_POST["short_description"] : '';
 
@@ -57,12 +57,12 @@
         if($quantity <0 ) {
             $error['quantity']= 'Số lượng phải lớn hơn 0';
         }
-        if($sale_price <0 ) {
-            $error['sale_price']= 'Giá tiền khuyến mãi phải lớn hơn 0';
-        }
-        if($sale_price > $price ) {
-            $error['sale_price'] = 'Giá khuyến mãi không được lớn hơn giá bán thường';
-        }
+        // if($sale_price <0 ) {
+        //     $error['sale_price']= 'Giá tiền khuyến mãi phải lớn hơn 0';
+        // }
+        // if($sale_price > $price ) {
+        //     $error['sale_price'] = 'Giá khuyến mãi không được lớn hơn giá bán thường';
+        // }
 
         if(empty($image)) {
             $image = "default-product.jpg";
@@ -78,7 +78,7 @@
                 }
 
                 try {
-                    $result = $ProductModel->insert_product($category_id, $name, $image, $quantity, $price, $sale_price, $details, $short_description);
+                    $result = $ProductModel->insert_product($category_id, $name, $image, $quantity, $price, $details, $short_description);
                     $success = 'Thêm sản phẩm thành công';
                 } catch (Exception $e) {
                     $error_message = $e->getMessage();
@@ -90,7 +90,7 @@
         }else {
             $temp['name'] = $name;
             $temp['price'] = $price;
-            $temp['sale_price'] = $sale_price;
+            // $temp['sale_price'] = $sale_price;
             $temp['quantity'] = $quantity;
             $temp['short_description'] = $short_description;
             $temp['details'] = $details;
@@ -122,17 +122,17 @@
                 </div>
                 
 
-                <label for="floatingInput">Giá bán thường (đ)</label>
+                <label for="floatingInput">Giá tiền (đ)</label>
                 <div class="form-floating mb-3">
                     <input type="number" name="price" value="<?=$temp['price']?>" class="form-control" id="floatingInput" placeholder="Giá bán thường (đ)">
                     <span class="text-danger" ><?=$error['price']?></span>
                 </div>
 
-                <label for="floatingInput">Giá khuyến mãi (đ)</label>
-                <div class="form-floating mb-3">
-                    <input type="number" name="sale_price" value="<?=$temp['sale_price']?>" class="form-control" id="floatingInput" placeholder="Giá khuyến mãi (đ)">
-                    <span class="text-danger" ><?=$error['sale_price']?></span>
-                </div>
+                    <!-- <label for="floatingInput">Giá khuyến mãi (đ)</label>
+                    <div class="form-floating mb-3">
+                        <input type="number" name="sale_price" value="<?=$temp['sale_price']?>" class="form-control" id="floatingInput" placeholder="Giá khuyến mãi (đ)">
+                        <span class="text-danger" ><?=$error['sale_price']?></span>
+                    </div> -->
                 <label for="floatingInput">Số lượng (nhập số)</label>
                 <div class="form-floating mb-3">
                     <input type="number" value="<?=$temp['quantity']?>" name="quantity" class="form-control" id="floatingInput" placeholder="Số lượng">

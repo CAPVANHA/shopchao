@@ -2,7 +2,7 @@
     ob_start();
     session_start();
 
-
+    include "global.php";
     require_once "models/pdo_library.php";
     require_once "models/BaseModel.php";
     require_once "models/ProductModel.php";
@@ -13,8 +13,8 @@
     require_once "models/OrderModel.php";
     require_once "models/PostModel.php";
     define('BASE_URL', 'index.php?url=');
-    define('URL_MOMO', 'http://localhost/DUAN1_BOOKSTORE/cam-on');
-    define('URL_ORDER', 'http://localhost/DUAN1_BOOKSTORE/don-hang');
+   
+    define('URL_ORDER', 'http://localhost/shopbanchao/don-hang');
 
     require_once "components/head.php";
     require_once "components/header.php";

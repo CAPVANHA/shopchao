@@ -102,6 +102,10 @@
 
                 require_once "khach-hang/add.php";         
                 break;  
+            case 'capnhat-tai-khoan':
+
+                require_once "khach-hang/edit.php";         
+                break;
             
             // Bình luận  
             case 'binh-luan':

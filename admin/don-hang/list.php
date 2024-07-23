@@ -1,6 +1,14 @@
 <?php
     $list_orders = $OrderModel->select_list_orders_admin();
     
+    if(isset($_GET['xoa'])) {
+        $order_id = $_GET['xoa'];
+
+        $OrderModel->delete_order_detail($order_id);
+        $OrderModel->delete_order($order_id);
+        
+        header("Location: index.php?quanli=danh-sach-don-hang");
+    }
 ?>
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light text-center rounded p-4">
@@ -62,7 +70,8 @@
                         <td class="td-responsive-2">
                         
                             <a class="btn-sm btn-success" href="index.php?quanli=cap-nhat-don-hang&id=<?=$order_id?>">Xem</a>
-                            <a class="btn-sm btn-secondary" href="index.php?quanli=cap-nhat-don-hang&id=<?=$order_id?>">Sửa</a>                          
+                            <a class="btn-sm btn-secondary" href="index.php?quanli=cap-nhat-don-hang&id=<?=$order_id?>">Sửa</a>      
+                            <a class="btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa')" href="danh-sach-don-hang&xoa=<?=$order_id?>">Xóa</a>                     
                         </td>
                     </tr>
                     <?php

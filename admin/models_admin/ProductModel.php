@@ -1,12 +1,12 @@
 <?php
     class ProductModel {
-        public function insert_product($category_id, $name, $image, $quantity, $price, $sale_price, $details, $short_description) {
+        public function insert_product($category_id, $name, $image, $quantity, $price, $details, $short_description) {
            
            $sql = "INSERT INTO products 
-           (category_id, name, image, quantity, price, sale_price, details, short_description)
-            VALUES (?,?,?,?,?,?,?,?)";
+           (category_id, name, image, quantity, price, details, short_description)
+            VALUES (?,?,?,?,?,?,?)";
 
-            pdo_execute($sql, $category_id, $name, $image, $quantity, $price, $sale_price, $details, $short_description);
+            pdo_execute($sql, $category_id, $name, $image, $quantity, $price, $details, $short_description);
         }
 
         public function select_products() {
@@ -83,7 +83,7 @@
             pdo_execute($sql, $product_id);
         }
 
-        public function update_product($category_id, $name, $image, $quantity, $price, $sale_price, $details, $short_description, $product_id) {
+        public function update_product($category_id, $name, $image, $quantity, $price, $details, $short_description, $product_id) {
             $sql = "UPDATE products SET 
             category_id = '".$category_id."', 
             name = '".$name."',";
@@ -94,7 +94,7 @@
 
             $sql .= " quantity = '".$quantity."', 
                     price = '".$price."', 
-                    sale_price = '".$sale_price."', 
+                    
                     details = '".$details."', 
                     short_description = '".$short_description."' 
                     WHERE product_id = ".$product_id;

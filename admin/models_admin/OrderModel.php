@@ -1,6 +1,14 @@
 <?php
     class OrderModel{
 
+        function check_remove_user($user_id) {
+            $sql = "
+                SELECT order_id FROM orders WHERE user_id = ?;
+            ";
+
+            return pdo_query_one($sql, $user_id);
+        }
+
         // Select thông tin đon hàng
         public function select_list_orders_admin() {
             $sql = "
@@ -173,6 +181,16 @@
             $sql = "UPDATE orders SET status = ? WHERE order_id = ?";
 
             pdo_execute($sql, $status, $order_id);
+        }
+
+        public function delete_order($order_id) {
+            $sql = "DELETE FROM orders WHERE order_id = ?";
+            pdo_execute($sql, $order_id);
+        }
+
+        public function delete_order_detail($order_id) {
+            $sql = "DELETE FROM orderdetails WHERE order_id  = ?";
+            pdo_execute($sql, $order_id);
         }
 
 

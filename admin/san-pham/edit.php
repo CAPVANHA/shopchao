@@ -27,7 +27,7 @@
 
         $quantity = $_POST["quantity"];
         $price = $_POST["price"];
-        $sale_price = $_POST["sale_price"];
+        // $sale_price = $_POST["sale_price"];
         $details = isset($_POST["details"]) ? $_POST["details"] : '';
         $short_description = isset($_POST["short_description"]) ? $_POST["short_description"] : '';
 
@@ -41,12 +41,12 @@
         if($quantity <0 ) {
             $error['quantity']= 'Số lượng phải lớn hơn 0';
         }
-        if($sale_price <0 ) {
-            $error['sale_price']= 'Giá tiền khuyến mãi phải lớn hơn 0';
-        }
-        if($sale_price > $price ) {
-            $error['sale_price'] = 'Giá khuyến mãi không được lớn hơn giá bán thường';
-        }
+        // if($sale_price <0 ) {
+        //     $error['sale_price']= 'Giá tiền khuyến mãi phải lớn hơn 0';
+        // }
+        // if($sale_price > $price ) {
+        //     $error['sale_price'] = 'Giá khuyến mãi không được lớn hơn giá bán thường';
+        // }
         
 
         if(empty(array_filter($error))) {
@@ -58,7 +58,7 @@
             }
 
             try {
-                $result = $ProductModel->update_product($category_id, $name, $image, $quantity, $price, $sale_price, $details, $short_description, $product_id);
+                $result = $ProductModel->update_product($category_id, $name, $image, $quantity, $price, $details, $short_description, $product_id);
 
                 setcookie('success_update', 'Cập nhật sản phẩm thành công', time() + 5, '/');
                 header("Location: index.php?quanli=cap-nhat-san-pham&id=".$product_id);
@@ -108,11 +108,7 @@
                     <span class="text-danger" ><?=$error['price']?></span>
                 </div>
 
-                <label for="floatingInput">Giá khuyến mãi (đ)</label>
-                <div class="form-floating mb-3">
-                    <input type="number" name="sale_price" value="<?=$sale_price?>" class="form-control" id="floatingInput" placeholder="Giá khuyến mãi (đ)">
-                    <span class="text-danger" ><?=$error['sale_price']?></span>
-                </div>
+                
                 <label for="floatingInput">Số lượng (nhập số)</label>
                 <div class="form-floating mb-3">
                     <input type="number" value="<?=$quantity?>" name="quantity" class="form-control" id="floatingInput" placeholder="Số lượng">

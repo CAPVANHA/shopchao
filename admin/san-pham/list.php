@@ -118,8 +118,7 @@ for ($i = 1; $i <= $numberOfPages; $i++) {
                         <th scope="col">#</th>
                         <th scope="col">Tên</th>
                         <th scope="col">Ảnh</th>
-                        <th scope="col">Giá thường</th>
-                        <th scope="col">Giá khuyến mãi</th>
+                        <th scope="col">Giá bán</th>
                         <th scope="col">Chỉnh sửa</th>
                     </tr>
                 </thead>
@@ -142,9 +141,7 @@ for ($i = 1; $i <= $numberOfPages; $i++) {
                         <td class="text-dark" style="font-weight: 600;">
                             <?=number_format($value['price'])."₫"?>
                         </td>
-                        <td class="text-danger" style="font-weight: 600;">
-                            <?=number_format($value['sale_price'])."₫"?>
-                        </td>
+                        
 
                         <td>
                             <div class="dropdown">

@@ -44,6 +44,16 @@
             return pdo_query_one($sql, $comment_id);
         }
 
+        function check_remove_user($user_id) {
+            $sql = "
+                SELECT comment_id FROM comments WHERE user_id = ?;
+            ";
+
+            return pdo_query_one($sql, $user_id);
+        }
+
+        
+
         public function update_status_comment($status, $comment_id) {
             $sql = "UPDATE comments SET status = ? WHERE comment_id = ?";
 
